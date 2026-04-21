@@ -1,0 +1,65 @@
+name: Feature request
+description: A new capability for the plugin runtime, installer, or anything that isn't a specific skill idea (those have their own template).
+title: "[Feature] "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for runtime / platform / tooling features. For **new skill ideas**, use the "Skill idea" template instead.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the operator pain point or mission need. What's hard or impossible today?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What would you like to see happen? Rough shape is fine — we'll work out specifics together.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Other ways to solve this that you ruled out (or are unsure about).
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Configuration (custos.yaml)
+        - Install / deploy tooling
+        - Sandbox / security model
+        - Inference routing / providers
+        - Automation system
+        - Voice / PTT
+        - Editor
+        - Audit / observability
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Links to related issues, references, use cases, mockups, or anything else that helps.
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: I searched existing issues and discussions before filing.
+          required: true
+        - label: I checked the docs at [custos.nimbusxr.us/docs](https://custos.nimbusxr.us/docs) and this isn't already supported.
+          required: true

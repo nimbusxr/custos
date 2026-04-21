@@ -1,0 +1,38 @@
+name: Docs issue
+description: Something wrong, unclear, or missing in this repo's README / CONTRIBUTING, or on custos.nimbusxr.us/docs.
+title: "[Docs] "
+labels: ["documentation", "triage"]
+body:
+  - type: dropdown
+    id: location
+    attributes:
+      label: Where is the issue?
+      options:
+        - This repo's README
+        - CONTRIBUTING.md
+        - A skill's SKILL.md
+        - Install script or comments
+        - custos.nimbusxr.us/docs (hosted docs)
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: url-or-path
+    attributes:
+      label: URL or file path
+      placeholder: "https://custos.nimbusxr.us/docs/reference/configuration or skills/custos.markers/SKILL.md"
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's wrong or missing?
+      description: Be specific — quote the confusing passage or describe the gap.
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested fix (optional)
+      description: If you have a proposed rewrite or addition, drop it here. PRs welcome.

@@ -1,0 +1,17 @@
+# On-device model weights are too large to commit.
+# Operators download them into models/ per models/README.md
+# and install.sh pushes whatever's there to the device.
+models/*
+!models/README.md
+!models/.gitkeep
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+
+# Editor scratch
+*.swp
+*~

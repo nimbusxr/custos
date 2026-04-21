@@ -1,0 +1,86 @@
+name: Skill idea
+description: Propose a new skill for the default kit, or a new tool for an existing skill.
+title: "[Skill] "
+labels: ["skill", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for thinking about what CUST/OS should do next. Skill ideas are the fastest path from "operator need" to "something in the field."
+
+        If you already have a working implementation, skip the issue and open a PR — link back to this template in the PR description to cover the justification.
+
+  - type: textarea
+    id: operator-need
+    attributes:
+      label: What should the operator be able to do?
+      description: Describe it from the operator's point of view — a chat message they'd send or a voice command they'd speak.
+      placeholder: "Ask 'how's my battery across the squad' and get back each contact's last-reported battery percentage with a flag for anyone below 20%."
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope of the skill
+      description: One or multiple tools? Any parameters? What does it return to the LLM?
+      placeholder: |
+        Single tool `squad_battery_status`:
+          - No params
+          - Returns `{ contacts: [{callsign, battery_pct, low_flag}], low_count, total_count }`
+    validations:
+      required: true
+
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impact level
+      description: How dangerous is calling this tool? This drives whether the approval gate fires.
+      options:
+        - READ_ONLY (query, no side effects)
+        - INFORMATIONAL (logging or memory writes)
+        - PROCEDURAL (single user-visible action)
+        - SIGNIFICANT (multi-step or harder to reverse)
+        - STRATEGIC (comms broadcast, package distribution, beacon)
+        - LETHAL (reserved for irreversible kinetic consequences)
+        - Not sure — want to discuss
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: Which ATAK APIs, plugins, or external services would this need? Any optional cloud providers?
+      placeholder: "Reads contact battery metadata from `com.atakmap.android.contact`. No external services."
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: Is this runtime-critical (used by the framework) or example content?
+      options:
+        - Example / demonstration
+        - Runtime-critical (the framework depends on it)
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Example operator queries
+      description: 3–5 ways an operator might ask for this. Used as the skill selector's `examples:` field.
+      placeholder: |
+        - "How's the squad's battery?"
+        - "Who's low on power?"
+        - "Battery status"
+        - "Any battery warnings?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Mission context, references, related skills, anything else.

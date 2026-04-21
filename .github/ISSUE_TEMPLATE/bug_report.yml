@@ -1,0 +1,115 @@
+name: Bug report
+description: Something is broken in a shipped skill, configuration, the install script, or the CUST/OS runtime.
+title: "[Bug] "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug. Please search existing issues before opening a new one — someone may have hit the same thing.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: One or two sentences describing what's broken.
+      placeholder: "Calling `place_marker` with a valid callsign returns an error instead of placing the marker."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: The smallest sequence that reliably triggers the bug.
+      placeholder: |
+        1. Fresh install of the shipped skill kit (`./install.sh`)
+        2. Open the Chat panel
+        3. Send "place a marker called alpha at my position"
+        4. Observe the error in the response
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should have happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What actually happened? Paste error messages, tool output, or screenshots here.
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: Device
+      description: Make, model, and Android version.
+      placeholder: "Samsung S26 Ultra, Android 15"
+    validations:
+      required: true
+
+  - type: input
+    id: atak-version
+    attributes:
+      label: ATAK-CIV version
+      placeholder: "5.6.0.x"
+    validations:
+      required: true
+
+  - type: input
+    id: plugin-version
+    attributes:
+      label: CUST/OS plugin version
+      description: Visible in the Settings panel.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      description: Where in the system do you believe the bug lives?
+      options:
+        - A shipped skill
+        - custos.yaml / configuration
+        - install.sh / scratches
+        - CUST/OS plugin runtime
+        - Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: skill
+    attributes:
+      label: Skill name (if applicable)
+      placeholder: "custos.markers"
+
+  - type: textarea
+    id: logcat
+    attributes:
+      label: Relevant logs
+      description: Output from `adb logcat` around the time of the failure. Filter by `custos` if you can.
+      render: shell
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Anything else that might be relevant — a recent config change, a specific provider you're using, other plugins installed.
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: I searched existing issues before filing.
+          required: true
+        - label: I reproduced this with the shipped `custos.yaml` (or documented the local change that triggers it).
+          required: true

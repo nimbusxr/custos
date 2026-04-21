@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://custos.nimbusxr.us/docs
+    about: Check the docs first — configuration keys, skill format, Lua API, and runtime behavior are all covered there.
+  - name: Discussions
+    url: https://github.com/nimbusxr/custos/discussions
+    about: Questions, use cases, deployment stories, and pattern ideas go in Discussions — not issues.
+  - name: Security vulnerabilities
+    url: https://github.com/nimbusxr/custos/blob/main/SECURITY.md
+    about: Please report security issues privately. See SECURITY.md for the disclosure process.

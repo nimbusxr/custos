@@ -1,0 +1,17 @@
+# Sponsor button configuration for the CUST/OS repo.
+# Uncomment and fill in the platforms you actually use.
+# Docs: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository
+
+github: [nimbusxr]                          # GitHub Sponsors username or org
+# patreon: nimbusxr                         # Patreon username
+# open_collective: custos                   # Open Collective project
+# ko_fi: nimbusxr                           # Ko-fi username
+# tidelift: npm/package-name                # Tidelift platform-name/package-name
+# community_bridge: project-name            # Community Bridge project name
+# liberapay: nimbusxr                       # Liberapay username
+# issuehunt: nimbusxr                       # IssueHunt username
+# lfx_crowdfunding: project-name            # LFX Crowdfunding project
+# polar: nimbusxr                           # Polar username
+# buy_me_a_coffee: nimbusxr                 # Buy Me a Coffee username
+# thanks_dev: u/gh/nimbusxr                 # thanks.dev platform/username
+# custom: ["https://nimbusxr.com/sponsor"]  # Any other URLs (up to 4)
