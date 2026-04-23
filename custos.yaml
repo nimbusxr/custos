@@ -120,7 +120,7 @@ providers:
   #     labels: "/sdcard/atak/custos/models/labels.txt"
 
 scriptRuntime:
-  maxInstructions: 1000000
+  maxInstructions: 10000000
   maxConcurrent: 3
   allowPaths:
     - "/sdcard/atak/custos"
