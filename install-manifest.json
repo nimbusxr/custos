@@ -1,0 +1,54 @@
+{
+  "$schema": "https://custos.nimbusxr.us/schemas/install-manifest-v1.json",
+  "version": 1,
+  "description": "Canonical catalog of on-device models and minimum device requirements for the CUST/OS starter kit. Consumed by custos-web's one-click installer at custos.nimbusxr.us/install. The repo's install.sh does not read this file — it installs whatever is physically present in models/ on the local clone.",
+  "models": [
+    {
+      "id": "gemma",
+      "filename": "gemma-4-E2B-it.litertlm",
+      "title": "Gemma 4 E2B-it",
+      "purpose": "On-device chat LLM (on-device-gemma4 provider)",
+      "approximateSizeBytes": 2147483648,
+      "download": {
+        "url": "https://huggingface.co/litert-community",
+        "label": "litert-community on Hugging Face"
+      },
+      "notes": "Requires accepting the Gemma license on Hugging Face. Must be in .litertlm format — LiteRT-LM does not load GGUF."
+    },
+    {
+      "id": "nomic",
+      "filename": "nomic-embed-text-v1.5.Q8_0.gguf",
+      "title": "Nomic Embed v1.5 (Q8_0)",
+      "purpose": "Embeddings for skill selection and RAG (on-device-embed provider)",
+      "approximateSizeBytes": 146800640,
+      "download": {
+        "url": "https://huggingface.co/nomic-ai/nomic-embed-text-v1.5-GGUF",
+        "label": "nomic-ai/nomic-embed-text-v1.5-GGUF"
+      }
+    },
+    {
+      "id": "whisper",
+      "filename": "ggml-tiny.bin",
+      "title": "Whisper tiny (ggml)",
+      "purpose": "On-device push-to-talk transcription (on-device-whisper provider)",
+      "approximateSizeBytes": 80740352,
+      "download": {
+        "url": "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-tiny.bin",
+        "label": "ggerganov/whisper.cpp (direct download)"
+      }
+    }
+  ],
+  "requirements": {
+    "minRamBytes": 6442450944,
+    "minRamBytesDescription": "6 GB of RAM. The on-device LLM (Gemma 4 E2B-it) needs ~2 GB of model weights plus headroom for ATAK and the inference runtime. Devices with less RAM will either OOM during inference or swap aggressively.",
+    "minStorageBytes": 3221225472,
+    "minStorageBytesDescription": "3 GB free on /sdcard. The three on-device models total ~2.3 GB, plus skills, config, and scratches.",
+    "minAndroidSdk": 29,
+    "minAndroidSdkDescription": "Android 10 (SDK 29). Older Androids lack APIs the plugin uses.",
+    "requiredArchitectures": ["arm64-v8a"],
+    "requiredArchitecturesDescription": "The APK and on-device model runtimes ship as arm64 only. x86_64 emulators and 32-bit ARM devices are not supported."
+  },
+  "notes": {
+    "failureGuidance": "If a device fails a requirement, the operator has alternatives: run a smaller on-device model (edit the provider URL in custos.yaml), route chat to a LAN/command-post HTTP provider over the mesh, or add a cloud provider. The CUST/OS plugin itself runs on any Android 10+ arm64 device — only the on-device LLM has meaningful hardware demands."
+  }
+}
