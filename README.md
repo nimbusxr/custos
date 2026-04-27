@@ -89,11 +89,7 @@ The shipped `custos.yaml` enables three on-device providers by default, each of 
 - **`on-device-embed`** (llama.cpp, embeddings) — powers semantic skill selection and RAG. Needs `nomic-embed-text-v1.5.Q8_0.gguf`.
 - **`on-device-whisper`** (whisper.cpp, `handheld` tier) — on-device PTT transcription. Needs `ggml-tiny.bin`.
 
-Cloud providers (Anthropic, OpenAI, xAI) and vision detection are in the file as commented-out examples. Uncomment the block you want, then set the API key from inside the chat:
-
-```
-Set the API key for anthropic-claude
-```
+Cloud providers (Anthropic, OpenAI, xAI) and vision detection are in the file as commented-out examples. Uncomment the block you want, then set the API key on the device: open the **Status** panel from the NavBar, tap the provider's row, and use **Set Key** in the provider detail dialog.
 
 Keys are stored in the encrypted Android Keystore — never in `custos.yaml`.
 
