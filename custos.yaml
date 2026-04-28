@@ -45,7 +45,7 @@ providers:
     contextSize: 16384
     threads: 4
     properties:
-      backend: "cpu"
+      backend: "gpu"
 
   # --- Cloud Chat (API keys stored in Android Keystore, not in this file) ---
   #  - name: "anthropic-claude"
